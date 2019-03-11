@@ -29,7 +29,6 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public boolean onMenuItemClick(MenuItem menuItem) {
                 switch (menuItem.getItemId()){
-                    case R.id.profileMenu:
 
                 }
                 return false;
@@ -40,11 +39,5 @@ public class ProfileActivity extends AppCompatActivity {
     private void setupBottomNavigationView(){
         BottomNavigationView view = findViewById(R.id.bottomNavViewBar);
         BottomNavigationHelper.enableNaviagtion(ProfileActivity.this,view);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.profile_menu,menu);
-        return true;
     }
 }
