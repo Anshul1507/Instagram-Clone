@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="practice.module.com.instagram">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,6 +21,7 @@
         <activity android:name="profile.ProfileActivity"/>
         <activity android:name="search.SearchActivity"/>
         <activity android:name="share.ShareActivity"/>
+        <activity android:name="profile.AccountSettingsActivity"/>
     </application>
 
 </manifest>

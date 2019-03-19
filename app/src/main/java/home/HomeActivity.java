@@ -1,5 +1,6 @@
 package home;
 
+import android.content.Context;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -8,22 +9,32 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
+
 import practice.module.com.instagram.R;
 import utils.BottomNavigationHelper;
+import utils.SectionPagerAdapter;
+import utils.UniversalImageLoader;
 
 public class HomeActivity extends AppCompatActivity {
 
     private static final int ACTIVITY_NUM = 0;
-
+    private Context mContext = HomeActivity.this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        initImageLoader();
         setupBottomNavigationView();
         setupViewPager();
+
     }
 
+    private void initImageLoader(){
+        UniversalImageLoader universalImageLoader = new UniversalImageLoader(mContext);
+        ImageLoader.getInstance().init(universalImageLoader.getConfig());
+    }
     //For adding 3 tabs (Camera,Home,Messages)
     private void setupViewPager(){
         SectionPagerAdapter adapter = new SectionPagerAdapter(getSupportFragmentManager());
