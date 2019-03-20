@@ -36,7 +36,7 @@ public class GridImageAdapter extends ArrayAdapter<String> {
     }
 
     private static class ViewHolder{
-        ImageView image;
+        SquareImageView image;
         ProgressBar mProgressBar;
 
     }
@@ -52,6 +52,7 @@ public class GridImageAdapter extends ArrayAdapter<String> {
             viewHolder.mProgressBar = convertView.findViewById(R.id.gridImageProgressBar);
             viewHolder.image = convertView.findViewById(R.id.gridImageView);
 
+            //tag will hold entire viewholder
             convertView.setTag(viewHolder);
         }else{
             viewHolder = (ViewHolder) convertView.getTag();

@@ -20,7 +20,7 @@
         <RelativeLayout
             android:id="@+id/relLayout2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_below="@id/relLayout1"
             android:background="@drawable/white_grey_border_bottom">
 
@@ -99,16 +99,16 @@
             <RelativeLayout
                 android:id="@+id/relLayout3"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_below="@id/linLayout2"
-                android:layout_marginBottom="50dp"
                 >
 
                 <GridView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:id="@+id/gridView"
                     android:numColumns="3"
+                    android:layout_marginBottom="50dp"
                     android:verticalSpacing="1dp"
                     android:horizontalSpacing="1dp"
                     android:stretchMode="columnWidth"

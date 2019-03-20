@@ -25,17 +25,16 @@ public class ProfileActivity extends AppCompatActivity {
     private ProgressBar mProgressBar;
     private ImageView profilePhoto;
     private static final int ACTIVITY_NUM = 4;
-    private Context mContext;
+    private Context mContext = ProfileActivity.this;
+    private static final int NUM_GRID_COLUMNS = 3;
 
     @Override
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-
-
-        setupToolBar();
         setupBottomNavigationView();
+        setupToolBar();
         setupActivityWidgets();
         setProfileImage();
         tempGridSetup();
@@ -43,20 +42,25 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void tempGridSetup(){
         ArrayList<String> imgURLs = new ArrayList<>();
-        imgURLs.add("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjnJlwAJi3GwkcxnVxUo9myrjbEDbnUGAecNlbHpHQUz-_OHJKiA");
-        imgURLs.add("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ6ZcAziLNp9PmnVF4zlISsObm6awN5DN88YEYrcIoiplxVRCITw");
-        imgURLs.add("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZeBodvL2esU7fpb3WTRmw9mBD0G7kWbE5V9z7wDkkgGxBEtoITw");
-        imgURLs.add("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKR6k9wC9jXjWLH17mvdz4WDCT_BIOuzH5U8VJsmLUsjxZIVEG");
-        imgURLs.add("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVOkAcVjo20njfM2R3QH0mmKrET-h1nDH1lCRYsUxYJYYcyzHDcg");
-        imgURLs.add("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDXBV0WrdhQuKZSg8jrlPvONoDX0mwMyb_Hkmz8kEwwVJDU_bl");
-        imgURLs.add("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3ogBkt2qWvyOxI1Ak5omOo2nsA_DyAj17GsDIt3Esah5-xlrZ");
-        imgURLs.add("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmjrLvKk0QWyMWYdAd1uJVaPMfWyxSMXYsishJxPbKwiii-F4I");
-        imgURLs.add("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-CvkyEHg0g69t68vaGANWW8m17zkCSZw37VB3ce7Y4Jblfkc67w");
-
+        imgURLs.add("https://cdn1.techadvisor.co.uk/cmsdata/features/3607615/Android_thumb800.jpg");
+        imgURLs.add("https://i.redd.it/9bf67ygj710z.jpg");
+        imgURLs.add("https://c1.staticflickr.com/5/4276/34102458063_7be616b993_o.jpg");
+        imgURLs.add("http://i.imgur.com/EwZRpvQ.jpg");
+        imgURLs.add("http://i.imgur.com/JTb2pXP.jpg");
+        imgURLs.add("https://i.redd.it/59kjlxxf720z.jpg");
+        imgURLs.add("https://i.redd.it/pwduhknig00z.jpg");
+        imgURLs.add("https://i.redd.it/clusqsm4oxzy.jpg");
+        imgURLs.add("https://i.redd.it/svqvn7xs420z.jpg");
+        imgURLs.add("http://i.imgur.com/j4AfH6P.jpg");
+        imgURLs.add("https://i.redd.it/89cjkojkl10z.jpg");
+        imgURLs.add("https://i.redd.it/aw7pv8jq4zzy.jpg");
         setupImageGrid(imgURLs);
     }
     private void setupImageGrid(ArrayList<String> imgURLs){
         GridView gridView = findViewById(R.id.gridView);
+        int gridWidth = getResources().getDisplayMetrics().widthPixels;
+        int imageWidth = gridWidth/NUM_GRID_COLUMNS;
+        gridView.setColumnWidth(imageWidth);
         if(mContext != null ) {
             GridImageAdapter adapter = new GridImageAdapter(mContext, R.layout.layout_grid_imageview, "", imgURLs);
             gridView.setAdapter(adapter);
